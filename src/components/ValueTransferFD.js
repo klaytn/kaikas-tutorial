@@ -12,7 +12,7 @@ class ValueTransferFDRatio extends Component {
       from: props.from,
       to: '',
       value: '',
-      gas: 3000000,
+      gas: 200000,
       senderAddress: '',
       senderRawTransaction: null,
     }

@@ -14,7 +14,7 @@ class SmartContractDeployFDRatio extends Component {
       data: '',
       value: 0,
       ratio: '',
-      gas: 3000000,
+      gas: 200000,
       senderAddress: '',
       senderRawTransaction: null,
     }

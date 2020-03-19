@@ -11,7 +11,7 @@ class ValueTransfer extends Component {
       from: props.from,
       to: '',
       value: '',
-      gas: 3000000,
+      gas: 200000,
       txHash: null,
       receipt: null,
       error: null,

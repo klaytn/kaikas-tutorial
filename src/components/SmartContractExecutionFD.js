@@ -14,7 +14,7 @@ class SmartContractExecutionFD extends Component {
       to: '',
       amount: '',
       contractAddress: '',
-      gas: 3000000,
+      gas: 200000,
       senderAddress: '',
       senderRawTransaction: null,
     }
