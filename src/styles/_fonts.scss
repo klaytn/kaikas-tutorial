@@ -1,0 +1,97 @@
+@mixin font-style($type) {
+  @if $type == 'font-1' {
+    font-size: 11px;
+    line-height: 18px;
+    font-family: 'Roboto';
+    font-weight: bold;
+  }
+
+  @else if $type == 'font-2' {
+    font-size: 11px;
+    line-height: 18px;
+    font-family: 'Roboto';
+    font-weight: normal;
+  }
+
+  @else if $type == 'font-3' {
+    font-size: 14px;
+    line-height: 18px;
+    font-family: 'GoogleSans';
+    font-weight: bold;
+  }
+
+  @else if $type == 'font-4' {
+    font-size: 12px;
+    line-height: 18px;
+    font-family: 'RobotoMono';
+  }
+
+  @else if $type == 'font-5' {
+    font-size: 10px;
+    line-height: 18px;
+    font-family: 'Roboto';
+    font-weight: bold;
+  }
+
+  @else if $type == 'font-6' {
+    font-size: 10px;
+    line-height: 18px;
+    font-family: 'Roboto';
+  }
+
+  @else if $type == 'font-7' {
+    font-size: 10px;
+    line-height: 18px;
+    font-family: 'RobotoMono';
+  }
+  
+  @else if $type == 'font-8' {
+    font-size: 13px;
+    line-height: 18px;
+    font-family: 'Roboto';
+    font-weight: normal;
+  }
+  
+  @else if $type == 'font-9' {
+    font-size: 13px;
+    line-height: 18px;
+    font-family: 'Roboto';
+    font-weight: bold;
+  }
+  
+  @else if $type == 'font-10' {
+    font-size: 12px;
+    line-height: 18px;
+    font-family: 'Roboto';
+    font-weight: normal;
+  }
+  
+  @else if $type == 'font-11' {
+    font-size: 12px;
+    line-height: 18px;
+    font-family: 'RobotoMono';
+    font-weight: normal;
+  }
+  
+  @else if $type == 'font-12' {
+    font-size: 12px;
+    line-height: 18px;
+    font-family: 'Roboto';
+    font-weight: bold;
+  }
+}
+
+/*
+1.
+font-size: 11px;
+line-height: 18px;
+font-family: 'Roboto';
+font-weight: bold;
+
+2.
+font-size: 11px;
+line-height: 18px;
+font-family: 'Roboto';
+font-weight: normal;
+
+ */

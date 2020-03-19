@@ -1,0 +1,78 @@
+$max-page-width: 935px;
+$min-page-width: 320px;
+$max-card-width: 600px;
+
+@mixin breakpoint($breakpoint) {
+  @if $breakpoint == "max-page" {
+    @media screen and (max-width: $max-page-width - 1) {
+      @content;
+    }
+  }
+  @else if $breakpoint == "max-card" {
+    @media screen and (max-width: $max-card-width - 1) {
+      @content;
+    }
+  }
+}
+
+@mixin fixed-center() {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin absolute-center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin borderBox($radius){
+  background-color: #fff;
+  border: 1px solid $light-grey;
+  @if $radius == yes {
+    border-radius: 3px;
+  }
+}
+
+@mixin cardBox(){
+  background-color: #fff;
+  border: 1px solid $light-grey;
+}
+
+@mixin imageReplacement($width, $height, $url, $bgColor) {
+  width: $width;
+  height: $height;
+  overflow: hidden;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $width;
+    height: $height;
+    background: center / contain no-repeat url($url) $bgColor;
+  }
+}
+
+@mixin clear-both() {
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+}
+
+@mixin textEllipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin breakWord() {
+  overflow: hidden;
+  white-space: normal;
+  word-wrap: break-word;
+}

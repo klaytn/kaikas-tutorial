@@ -1,0 +1,32 @@
+version: 2.1
+
+default: &defaults
+  working_directory: ~/kaikas-tutorial
+  docker:
+    - image: circleci/node:10
+
+jobs:
+  deploy:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys: node_modules-{{ checksum "package-lock.json" }}
+      - run: |
+          npm install
+          npm run build
+          sudo apt-get install awscli
+          aws s3 sync dist/ s3://$FRONTEND_BUCKET/dist
+      - save_cache:
+          key: node_modules-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+        
+
+workflows:
+  deploy:
+    jobs:
+      - deploy:
+          filters:
+            branches:
+              only: master

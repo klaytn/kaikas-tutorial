@@ -1,0 +1,54 @@
+.AddToken {
+  .Input { margin-bottom: 10px; }
+}
+
+.AddToken__section {
+  &:first-child {
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid $light-grey;
+  }
+}
+
+.AddToken__title {
+  color: $brownish-grey;
+  margin-bottom: 15px;
+}
+
+.AddToken__sample {
+  width: 530px;
+  padding: 15px;
+  line-height: 1.5;
+  border: 1px solid $light-grey;
+  border-radius: 5px;
+  @include clear-both();
+}
+
+.AddToken__sampleImage {
+  float: left;
+  width: 50px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.AddToken__sampleContent {
+  float: right;
+}
+
+.AddToken__sampleName {
+  font-size: 20px;
+  font-weight: bold;
+  color: $dark-brown;
+}
+
+.AddToken__sampleAddress {
+  font-size: 16px;
+  font-weight: bold;
+  color: $brown-grey;
+}
+
+.AddToken__sampleDecimals {
+  font-size: 12px;
+  color: $brown-grey;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,16 @@
+.AccountUpdate {
+  margin-bottom: 30px;
+}
+
+.AccountUpdate__generateKeypair {
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 1px solid $middle-grey;
+  border-radius: 10px;
+
+  & > .Input { margin-bottom: 0; }
+}
+
+.AccountUpdate__generateButton {
+  margin-bottom: 10px;
+}

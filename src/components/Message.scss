@@ -1,0 +1,66 @@
+.Message {
+  @include font-style('font-4');
+  display: flex;
+  align-items: center;
+  padding: 10px 10px 10px 0;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: $black;
+  word-break: break-all;
+  color: white;
+
+  &--error {
+    .Message__status {
+      color: $alert-red;
+      background-image: url('/images/ico-error.svg');
+    }
+    .Message__message { color: $alert-red; }
+  }
+
+  &--txHash {
+    .Message__status {
+      padding-top: 0;
+      color: $warning-yellow;
+      background-image: none;
+      .Message__message { color: $warning-yellow; }
+    }
+  }
+
+  &--receipt {
+    .Message__status {
+      background-image: url('/images/ico-receipt.svg');
+    }
+  }
+
+  &--rawTransaction,
+  &--signedMessage {
+    margin-top: 20px;
+    .Message__status {
+      padding-top: 25px;
+      background-size: 22px 22px;
+      background-image: url('/images/icon-tx.svg');
+    }
+  }
+}
+
+.Message__status {
+  display: inline-block;
+  width: 80px;
+  padding-top: 18px;
+  line-height: 1.1;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 14px 14px;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+}
+
+.Message__message {
+  display: inline-block;
+  width: calc(100% - 80px);
+  max-height: 150px;
+  overflow: scroll;
+  font-size: 14px;
+  color: white;
+}
