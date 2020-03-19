@@ -14,7 +14,7 @@ class ValueTransferMemoFDRatio extends Component {
       value: '',
       memo: '',
       ratio: '',
-      gas: 200000,
+      gas: 3000000,
       senderAddress: '',
       senderRawTransaction: null,
     }

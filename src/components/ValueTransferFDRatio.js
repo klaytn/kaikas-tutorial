@@ -13,7 +13,7 @@ class ValueTransferFD extends Component {
       to: '',
       value: '',
       ratio: '',
-      gas: 200000,
+      gas: 3000000,
       senderAddress: '',
       senderRawTransaction: null,
     }

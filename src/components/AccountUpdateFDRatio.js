@@ -15,7 +15,7 @@ class AccountUpdateFDRatio extends Component {
       publicKey: '',
       walletKey: '',
       ratio: '',
-      gas: 200000,
+      gas: 3000000,
       senderRawTransaction: null,
     }
   }

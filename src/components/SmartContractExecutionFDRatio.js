@@ -15,7 +15,7 @@ class SmartContractExecutionFDRatio extends Component {
       amount: '',
       contractAddress: '',
       ratio: '',
-      gas: 200000,
+      gas: 3000000,
       senderAddress: '',
       senderRawTransaction: null,
     }

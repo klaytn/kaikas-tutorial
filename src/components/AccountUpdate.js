@@ -13,7 +13,7 @@ class AccountUpdate extends Component {
       from: props.from,
       publicKey: '',
       walletKey: '',
-      gas: 200000,
+      gas: 3000000,
       txHash: null,
       receipt: null,
       error: null,

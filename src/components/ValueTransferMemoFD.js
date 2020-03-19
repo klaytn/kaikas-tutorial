@@ -13,7 +13,7 @@ class ValueTransferMemoFD extends Component {
       to: '',
       value: '',
       memo: '',
-      gas: 200000,
+      gas: 3000000,
       senderAddress: '',
       senderRawTransaction: null,
     }

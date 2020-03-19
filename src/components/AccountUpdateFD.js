@@ -14,7 +14,7 @@ class AccountUpdateFD extends Component {
       from: props.from,
       publicKey: '',
       walletKey: '',
-      gas: 200000,
+      gas: 3000000,
       senderRawTransaction: null,
     }
   }

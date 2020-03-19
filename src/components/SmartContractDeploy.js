@@ -12,7 +12,7 @@ class SmartContractDeploy extends Component {
       from: props.from,
       data: '',
       value: 0,
-      gas: 200000,
+      gas: 3000000,
       txHash: null,
       receipt: null,
       error: null,
