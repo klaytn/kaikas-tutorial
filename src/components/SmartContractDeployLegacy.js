@@ -81,7 +81,7 @@ class SmartContractDeployLegacy extends Component {
           placeholder="Gas you willing to pay for contract deploy"
         />
         <Button
-          title="Deploy Contract"
+          title="Sign Transaction"
           onClick={this.handleSmartContractDeploy}
         />
         <TxResult
