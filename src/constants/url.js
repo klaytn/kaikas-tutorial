@@ -1,1 +1,1 @@
-export const KLAY_FAUCET = 'https://wallet.klaytn.com/access?next=faucet'
+export const KLAY_FAUCET = 'https://baobab.wallet.klaytn.com/access?next=faucet'
