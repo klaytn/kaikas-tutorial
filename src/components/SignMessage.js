@@ -13,12 +13,12 @@ class SignMessage extends Component {
     }
   }
 
-  // static getDerivedStateFromProps = (nextProps, prevState) => {
-  //   if (nextProps.from !== prevState.from) {
-  //     return { from: nextProps.from }
-  //   }
-  //   return null
-  // }
+  static getDerivedStateFromProps = (nextProps, prevState) => {
+    if (nextProps.from !== prevState.from) {
+      return { from: nextProps.from }
+    }
+    return null
+  }
 
   handleChange = (e) => {
     this.setState({

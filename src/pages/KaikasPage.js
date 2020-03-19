@@ -67,6 +67,22 @@ class KaikasPage extends Component {
     this.setNetworkInfo()
   }
 
+  loadAccountInfo = async () => {
+    const { klaytn } = window
+
+    if (klaytn) {
+      try {
+        await klaytn.enable()
+        this.setAccountInfo(klaytn)
+        klaytn.on('accountsChanged', () => this.setAccountInfo(klaytn))
+      } catch (error) {
+        console.log('User denied account access')
+      }
+    } else {
+      console.log('Non-Kaikas browser detected. You should consider trying Kaikas!')
+    }
+  }
+
   setAccountInfo = async () => {
     const { klaytn } = window
     if (klaytn === undefined) return
@@ -77,7 +93,6 @@ class KaikasPage extends Component {
       account,
       balance: caver.utils.fromPeb(balance, 'KLAY'),
     })
-    klaytn.on('accountsChanged', () => this.setAccountInfo())
   }
 
   setNetworkInfo = () => {
@@ -86,21 +101,6 @@ class KaikasPage extends Component {
 
     this.setState({ network: klaytn.networkVersion })
     klaytn.on('networkChanged', () => this.setNetworkInfo(klaytn.networkVersion))
-  }
-
-  loadAccountInfo = async () => {
-    const { klaytn } = window
-
-    if (klaytn) {
-      try {
-        await klaytn.enable()
-        this.setAccountInfo(klaytn)
-      } catch (error) {
-        console.log('User denied account access')
-      }
-    } else {
-      console.log('Non-Kaikas browser detected. You should consider trying Kaikas!')
-    }
   }
 
   selectTxType = (txType) => this.setState({ txType })
