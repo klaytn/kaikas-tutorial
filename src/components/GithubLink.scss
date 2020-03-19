@@ -1,0 +1,21 @@
+.GithubLink {
+  display: inline-block;
+  width: 120px;
+  margin-left: 8px;
+  color: $brown-grey;
+  text-align: right;
+  font-size: 12px;
+  cursor: pointer;
+
+  &:hover { text-decoration: underline; }
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    vertical-align: text-top;
+    margin-right: 3px;
+    background: center / 12px no-repeat url('/images/icon-github.svg');
+  }
+}

@@ -4,6 +4,7 @@ import caver from 'klaytn/caver'
 import Nav from 'components/Nav'
 import WalletInfo from 'components/WalletInfo'
 import Dropdown from 'components/Dropdown'
+import GithubLink from 'components/GithubLink'
 import ValueTransferLegacy from 'components/ValueTransferLegacy'
 import SmartContractExecutionLegacy from 'components/SmartContractExecutionLegacy'
 import SmartContractDeployLegacy from 'components/SmartContractDeployLegacy'
@@ -27,28 +28,28 @@ import SmartContractExecutionFDRatio from 'components/SmartContractExecutionFDRa
 
 import './KaikasPage.scss'
 
-const txTypeList = [
-  'Value Transfer (Legacy)',
-  'Smart Contract Deploy (Legacy)',
-  'Token Transfer (Legacy)',
-  'Add Token',
-  'Sign Message',
-  'Value Transfer',
-  'Value Transfer (Fee Delegation)',
-  'Value Transfer (Fee Delegation with Ratio)',
-  'Value Transfer with Memo',
-  'Value Transfer with Memo (Fee Delegation)',
-  'Value Transfer with Memo (Fee Delegation with Ratio)',
-  'Account Update',
-  'Account Update (Fee Delegation)',
-  'Account Update (Fee Delegation with Ratio)',
-  'Smart Contract Deploy',
-  'Smart Contract Deploy (Fee Delegation)',
-  'Smart Contract Deploy (Fee Delegation with Ratio)',
-  'Token Transfer',
-  'Token Transfer (Fee Delegation)',
-  'Token Transfer (Fee Delegation with Ratio)',
-]
+const txTypeList = {
+  'Value Transfer (Legacy)': 'ValueTransferLegacy',
+  'Smart Contract Deploy (Legacy)': 'SmartContractDeployLegacy',
+  'Token Transfer (Legacy)': 'SmartContractExecutionLegacy',
+  'Add Token': 'AddToken',
+  'Sign Message': 'SignMessage',
+  'Value Transfer': 'ValueTransfer',
+  'Value Transfer (Fee Delegation)': 'ValueTransferFD',
+  'Value Transfer (Fee Delegation with Ratio)': 'ValueTransferFDRatio',
+  'Value Transfer with Memo': 'ValueTransferMemo',
+  'Value Transfer with Memo (Fee Delegation)': 'ValueTransferMemoFD',
+  'Value Transfer with Memo (Fee Delegation with Ratio)': 'ValueTransferMemoFDRatio',
+  'Account Update': 'AccountUpdate',
+  'Account Update (Fee Delegation)': 'AccountUpdateFD',
+  'Account Update (Fee Delegation with Ratio)': 'AccountUpdateFDRatio',
+  'Smart Contract Deploy': 'SmartContractDeploy',
+  'Smart Contract Deploy (Fee Delegation)': 'SmartContractDeployFD',
+  'Smart Contract Deploy (Fee Delegation with Ratio)': 'SmartContractDeployFDRatio',
+  'Token Transfer': 'SmartContractExecution',
+  'Token Transfer (Fee Delegation)': 'SmartContractExecutionFD',
+  'Token Transfer (Fee Delegation with Ratio)': 'SmartContractExecutionFDRatio',
+}
 
 class KaikasPage extends Component {
   constructor(props) {
@@ -153,9 +154,14 @@ class KaikasPage extends Component {
 
   render() {
     const { account, balance, txType, network } = this.state
+    const txTypeTitles = Object.keys(txTypeList)
+
     return (
       <div className="KaikasPage">
         <Nav network={network} />
+        <a className="KaikasPage__githubLink" href="https://github.com/klaytn/kaikas-tutorial" title="Link to Kaikas tutorial github repository">
+          <img src="images/icon-github.svg" alt="Kaikas Tutorial Github" />
+        </a>
         <div className="KaikasPage__main">
           <WalletInfo address={account} balance={balance} />
           <div className="KaikasPage__content">
@@ -164,10 +170,13 @@ class KaikasPage extends Component {
               placeholder="Transaction Type"
               selectedItem={txType}
               handleSelect={this.selectTxType}
-              list={txTypeList}
+              list={txTypeTitles}
             />
             <div className="KaikasPage__txExample">
-              <h2 className="KaikasPage__txExampleTitle">{txType}</h2>
+              <header className="KaikasPage__txExampleHeader">
+                <h2 className="KaikasPage__txExampleTitle">{txType}</h2>
+                {txType && <GithubLink component={txTypeList[txType]} />}
+              </header>
               {this.renderTxExample(txType, account)}
             </div>
           </div>

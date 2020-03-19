@@ -1,7 +1,17 @@
 .KaikasPage {
   width: 100%;
   height: 100%;
+}
 
+.KaikasPage__githubLink {
+  width: 32px;
+  height: 32px;
+  position: fixed;
+  bottom: 35px;
+  right: 35px;
+  transition: opacity .2s;
+
+  &:hover { opacity: .8; }
 }
 
 .KaikasPage__main {
@@ -20,11 +30,19 @@
 }
 
 .KaikasPage__txExample {
-  padding: 20px;
+  padding: 15px 20px 20px 20px;
+}
+
+.KaikasPage__txExampleHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 15px;
 }
 
 .KaikasPage__txExampleTitle {
-  padding-bottom: 30px;
+  width: calc(100% - 120px);
+  @include textEllipsis();
 }
 
 .KaikasPage__dropdown {
