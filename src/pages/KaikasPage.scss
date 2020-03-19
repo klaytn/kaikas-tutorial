@@ -9,6 +9,7 @@
   position: fixed;
   bottom: 35px;
   right: 35px;
+  z-index: 9999;
   transition: opacity .2s;
 
   &:hover { opacity: .8; }
