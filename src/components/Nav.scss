@@ -19,8 +19,9 @@
 }
 
 .Nav__logo {
-  width: 180px;
-  img { width: 100%; }
+  width: 160px;
+  overflow: hidden;
+  img { width: 180px; }
 }
 
 .Nav__network {
