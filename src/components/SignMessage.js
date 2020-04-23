@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Input from 'components/Input'
 import Button from 'components/Button'
 import Message from 'components/Message'
+import caver from 'klaytn/caver'
 
 class SignMessage extends Component {
   constructor(props) {
