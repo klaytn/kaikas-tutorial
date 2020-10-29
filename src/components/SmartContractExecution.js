@@ -16,6 +16,7 @@ class SmartContractExecution extends Component {
       txHash: null,
       receipt: null,
       error: null,
+      decimal: 18
     }
   }
 
@@ -26,49 +27,72 @@ class SmartContractExecution extends Component {
     return null
   }
 
-  handleChange = (e) => {
+  handleChange = e => {
     this.setState({
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     })
   }
 
   signTransaction = () => {
-    const { from, contractAddress, to, amount, gas } = this.state
-    const data = caver.klay.abi.encodeFunctionCall({
-      name: 'transfer',
-      type: 'function',
-      inputs: [{
-        type: 'address',
-        name: 'recipient',
-      }, {
-        type: 'uint256',
-        name: 'amount',
-      }],
-    }, [to, caver.utils.toPeb(amount, 'KLAY')])
+    const { from, contractAddress, to, amount, gas, decimal } = this.state
+    const data = caver.klay.abi.encodeFunctionCall(
+      {
+        name: 'transfer',
+        type: 'function',
+        inputs: [
+          {
+            type: 'address',
+            name: 'recipient'
+          },
+          {
+            type: 'uint256',
+            name: 'amount'
+          }
+        ]
+      },
+      [
+        to,
+        caver.utils
+          .toBN(amount)
+          .mul(caver.utils.toBN(Number(`1e${decimal}`)))
+          .toString()
+      ]
+    )
 
-    caver.klay.sendTransaction({
-      type: 'SMART_CONTRACT_EXECUTION',
-      from,
-      to: contractAddress,
-      data,
-      gas,
-    })
-      .on('transactionHash', (transactionHash) => {
+    caver.klay
+      .sendTransaction({
+        type: 'SMART_CONTRACT_EXECUTION',
+        from,
+        to: contractAddress,
+        data,
+        gas
+      })
+      .on('transactionHash', transactionHash => {
         console.log('txHash', transactionHash)
         this.setState({ txHash: transactionHash })
       })
-      .on('receipt', (receipt) => {
+      .on('receipt', receipt => {
         console.log('receipt', receipt)
         this.setState({ receipt: JSON.stringify(receipt) })
       })
-      .on('error', (error) => {
+      .on('error', error => {
         console.log('error', error)
         this.setState({ error: error.message })
       })
   }
 
   render() {
-    const { from, to, amount, contractAddress, gas, txHash, receipt, error } = this.state
+    const {
+      from,
+      to,
+      amount,
+      contractAddress,
+      gas,
+      txHash,
+      receipt,
+      error,
+      decimal
+    } = this.state
 
     return (
       <div className="SmartContractExecution">
@@ -77,45 +101,45 @@ class SmartContractExecution extends Component {
           label="From"
           value={from}
           onChange={this.handleChange}
-          placeholder="Account you logged in metamask"
+          placeholder="Kaikas account"
         />
         <Input
           name="to"
           label="To"
           value={to}
           onChange={this.handleChange}
-          placeholder="Address you want to send Token"
+          placeholder="Address you want to send token to"
         />
         <Input
           name="contractAddress"
-          label="Contract Address (Token Address)"
+          label="Token Contract Address"
           value={contractAddress}
           onChange={this.handleChange}
           placeholder="The address of the deployed smart contract"
+        />
+        <Input
+          name="decimal"
+          label="Token Decimal"
+          value={decimal}
+          onChange={this.handleChange}
+          placeholder="Token's number of decimal"
         />
         <Input
           name="amount"
           label="Amount"
           value={amount}
           onChange={this.handleChange}
-          placeholder="Amount of Eth you want to send"
+          placeholder="Amount of token you want to send"
         />
         <Input
           name="gas"
           label="Gas"
           value={gas}
           onChange={this.handleChange}
-          placeholder="Gas"
+          placeholder="Transaction gas limit"
         />
-        <Button
-          title="Sign Transaction"
-          onClick={this.signTransaction}
-        />
-        <TxResult
-          txHash={txHash}
-          receipt={receipt}
-          error={error}
-        />
+        <Button title="Sign Transaction" onClick={this.signTransaction} />
+        <TxResult txHash={txHash} receipt={receipt} error={error} />
       </div>
     )
   }
