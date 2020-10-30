@@ -5,7 +5,6 @@ import Button from 'components/Button'
 import Message from 'components/Message'
 import FeeDelegation from 'components/FeeDelegation'
 
-
 class SmartContractExecutionFD extends Component {
   constructor(props) {
     super(props)
@@ -17,6 +16,7 @@ class SmartContractExecutionFD extends Component {
       gas: 3000000,
       senderAddress: '',
       senderRawTransaction: null,
+      decimal: 18
     }
   }
 
@@ -27,36 +27,50 @@ class SmartContractExecutionFD extends Component {
     return null
   }
 
-  handleChange = (e) => {
+  handleChange = e => {
     this.setState({
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     })
   }
 
   signTransaction = async () => {
-    const { from, to, amount, contractAddress, gas } = this.state
+    const { from, to, amount, contractAddress, gas, decimal } = this.state
 
-    const data = caver.klay.abi.encodeFunctionCall({
-      name: 'transfer',
-      type: 'function',
-      inputs: [{
-        type: 'address',
-        name: 'recipient',
-      }, {
-        type: 'uint256',
-        name: 'amount',
-      }],
-    }, [to, caver.utils.toPeb(amount, 'KLAY')])
+    const data = caver.klay.abi.encodeFunctionCall(
+      {
+        name: 'transfer',
+        type: 'function',
+        inputs: [
+          {
+            type: 'address',
+            name: 'recipient'
+          },
+          {
+            type: 'uint256',
+            name: 'amount'
+          }
+        ]
+      },
+      [
+        to,
+        caver.utils
+          .toBN(amount)
+          .mul(caver.utils.toBN(Number(`1e${decimal}`)))
+          .toString()
+      ]
+    )
 
     const txData = {
       type: 'FEE_DELEGATED_SMART_CONTRACT_EXECUTION',
       from,
       to: contractAddress,
       gas,
-      data,
+      data
     }
 
-    const { rawTransaction: senderRawTransaction } = await caver.klay.signTransaction(txData)
+    const {
+      rawTransaction: senderRawTransaction
+    } = await caver.klay.signTransaction(txData)
 
     this.setState({
       senderAddress: from,
@@ -65,49 +79,61 @@ class SmartContractExecutionFD extends Component {
   }
 
   render() {
-    const { from, to, amount, contractAddress, gas, senderRawTransaction } = this.state
+    const {
+      from,
+      to,
+      amount,
+      contractAddress,
+      gas,
+      senderRawTransaction,
+      decimal
+    } = this.state
 
     return (
       <div className="SmartContractExecutionFD">
         <Input
           name="from"
-          label="From (Sender Address)"
+          label="From"
           value={from}
-          placeholder="From Address"
           onChange={this.handleChange}
+          placeholder="Kaikas account"
         />
         <Input
           name="to"
           label="To"
           value={to}
           onChange={this.handleChange}
-          placeholder="Address you want to send Token"
+          placeholder="Address you want to send token to"
         />
         <Input
           name="contractAddress"
-          label="Contract Address (Token Address)"
+          label="Token Contract Address"
           value={contractAddress}
           onChange={this.handleChange}
           placeholder="The address of the deployed smart contract"
+        />
+        <Input
+          name="decimal"
+          label="Token Decimal"
+          value={decimal}
+          onChange={this.handleChange}
+          placeholder="Token's number of decimal"
         />
         <Input
           name="amount"
           label="Amount"
           value={amount}
           onChange={this.handleChange}
-          placeholder="Amount of Eth you want to send"
+          placeholder="Amount of token you want to send"
         />
         <Input
           name="gas"
           label="Gas"
           value={gas}
           onChange={this.handleChange}
-          placeholder="Gas"
+          placeholder="Transaction gas limit"
         />
-        <Button
-          title="Sign Transaction"
-          onClick={this.signTransaction}
-        />
+        <Button title="Sign Transaction" onClick={this.signTransaction} />
         {senderRawTransaction && (
           <Message
             type="rawTransaction"
