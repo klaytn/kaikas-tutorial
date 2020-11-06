@@ -35,6 +35,9 @@ class SmartContractExecutionFD extends Component {
 
   signTransaction = async () => {
     const { from, to, amount, contractAddress, gas, decimal } = this.state
+    if (decimal > 20) {
+      return alert('decimal should be less than 21')
+    }
 
     const data = caver.klay.abi.encodeFunctionCall(
       {
