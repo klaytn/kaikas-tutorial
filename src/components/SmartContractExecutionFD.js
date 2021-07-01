@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import caver from 'klaytn/caver'
+import { parseUnits } from '@ethersproject/units';
 import Input from 'components/Input'
 import Button from 'components/Button'
 import Message from 'components/Message'
 import FeeDelegation from 'components/FeeDelegation'
+
 
 class SmartContractExecutionFD extends Component {
   constructor(props) {
@@ -56,10 +58,7 @@ class SmartContractExecutionFD extends Component {
       },
       [
         to,
-        caver.utils
-          .toBN(amount)
-          .mul(caver.utils.toBN(Number(`1e${decimal}`)))
-          .toString()
+        parseUnits(amount, decimal).toString()
       ]
     )
 
