@@ -14,6 +14,7 @@
     "type": "git"
   },
   "dependencies": {
+    "@ethersproject/units": "^5.4.0",
     "caver-js": "^1.3.2",
     "classnames": "^2.2.6",
     "dotenv": "^8.0.0",
