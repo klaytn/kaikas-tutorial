@@ -1,6 +1,6 @@
 # Kaikas Tutorial
 
-> [tutorial.kaikas.io](tutorial.kaikas.io)
+> [tutorial.kaikas.io](https://tutorial.kaikas.io)
 
 ![kaikas-tutorial-screen](./static/images/kaikas-tutorial-screen.png)
 
