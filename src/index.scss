@@ -1,8 +1,10 @@
+@import './styles/variables';
+
 @font-face {
   font-family: 'SFUIText';
   font-style: normal;
   font-weight: bold;
-  src: url('/fonts/SFUIText-Bold.ttf') format('truetype');
+  src: url('./static/fonts/SFUIText-Bold.ttf') format('truetype');
   font-display: swap;
 }
 
@@ -10,7 +12,7 @@
   font-family: 'SFUIText';
   font-style: normal;
   font-weight: 600;
-  src: url('/fonts/SFUIText-Semibold.ttf') format('truetype');
+  src: url('./static/fonts/SFUIText-Semibold.ttf') format('truetype');
   font-display: swap;
 }
 
@@ -18,7 +20,7 @@
   font-family: 'SFUIText';
   font-style: normal;
   font-weight: normal;
-  src: url('/fonts/SFUIText-Regular.ttf') format('truetype');
+  src: url('./static/fonts/SFUIText-Regular.ttf') format('truetype');
   font-display: swap;
 }
 
@@ -26,7 +28,7 @@
   font-family: 'SFUIText';
   font-style: normal;
   font-weight: 300;
-  src: url('/fonts/SFUIText-Medium.ttf') format('truetype');
+  src: url('./static/fonts/SFUIText-Medium.ttf') format('truetype');
   font-display: swap;
 }
 
@@ -34,7 +36,7 @@
   font-family: 'SFUIText';
   font-style: normal;
   font-weight: 200;
-  src: url('/fonts/SFUIText-Light.ttf') format('truetype');
+  src: url('./static/fonts/SFUIText-Light.ttf') format('truetype');
   font-display: swap;
 }
 
@@ -82,3 +84,5 @@ body {
     list-style: none;
   }
 }
+
+

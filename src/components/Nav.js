@@ -2,6 +2,7 @@ import React from 'react'
 import cx from 'classnames'
 import { isNull } from 'lodash'
 import networks from 'constants/networks'
+import logo from '../static/images/logo-kaikas-tutorial.png'
 import './Nav.scss'
 
 const Nav = ({ network }) => (
@@ -10,7 +11,7 @@ const Nav = ({ network }) => (
       <h1 className="Nav__logo">
         <a href="/">
           <img
-            src="images/logo-kaikas-tutorial.png"
+            src={logo}
             alt="Kaikas Tutorial"
           />
         </a>
