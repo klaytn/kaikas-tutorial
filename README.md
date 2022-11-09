@@ -7,7 +7,7 @@ After the branch policy change, please check your local or forked repository set
 
 > [tutorial.kaikas.io](tutorial.kaikas.io)
 
-![kaikas-tutorial-screen](./static/images/kaikas-tutorial-screen.png)
+![kaikas-tutorial-screen](./src/static/images/kaikas-tutorial-screen.png)
 
 ### 1) Introduction
 Kaikas Tutorial is a reference BApp that works with Kaikas. You can send Klaytn's various types of transactions in the Kaikas tutorial and refer to the source code to create your BApp.
@@ -18,7 +18,7 @@ Kaikas Tutorial is a reference BApp that works with Kaikas. You can send Klaytn'
 3. `cd kaikas-tutorial`
 4. Run `npm install` to install node packages
 5. Run `npm run local`
-6. App should be running on https://localhost:8888
+6. App should be running on https://localhost:1234
 
 #### Builds the app for production
 1. Run `npm run build` to build app
