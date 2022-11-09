@@ -6,6 +6,8 @@
   "license": "MIT",
   "source": "src/static/index.html",
   "scripts": {
+    "build": "parcel build",
+    "start": "npx serve ./dist -p 5555",
     "local": "parcel"
   },
   "repository": {
