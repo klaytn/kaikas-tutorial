@@ -3,7 +3,7 @@ version: 2.1
 default: &defaults
   working_directory: ~/kaikas-tutorial
   docker:
-    - image: circleci/node:10
+    - image: cimg/node:16.17.1
 
 jobs:
   deploy:
