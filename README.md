@@ -1,3 +1,8 @@
+# Branch name will be changed
+
+We will change the `master` branch to `main` on Nov 1, 2022.
+After the branch policy change, please check your local or forked repository settings.
+
 # Kaikas Tutorial
 
 > [tutorial.kaikas.io](tutorial.kaikas.io)
