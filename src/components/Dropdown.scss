@@ -1,3 +1,5 @@
+@import '../styles/variables';
+
 .Dropdown {
   position: relative;
   text-align: left;
@@ -24,11 +26,11 @@
     display: inline-block;
     width: 12px;
     height: 12px;
-    background: center / contain no-repeat url('/images/icon-downArrow.svg');
+    background: center / contain no-repeat url('../static/images/icon-downArrow.svg');
   }
 
   .Dropdown--active &::after {
-    background: center / contain no-repeat url('/images/icon-upArrow.svg');
+    background: center / contain no-repeat url('../static/images/icon-upArrow.svg');
   }
 }
 

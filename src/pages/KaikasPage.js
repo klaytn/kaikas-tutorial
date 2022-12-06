@@ -25,6 +25,7 @@ import SmartContractDeployFDRatio from 'components/SmartContractDeployFDRatio'
 import SmartContractExecution from 'components/SmartContractExecution'
 import SmartContractExecutionFD from 'components/SmartContractExecutionFD'
 import SmartContractExecutionFDRatio from 'components/SmartContractExecutionFDRatio'
+import githubIcon from '../static/images/icon-github.svg'
 
 import './KaikasPage.scss'
 
@@ -160,7 +161,7 @@ class KaikasPage extends Component {
       <div className="KaikasPage">
         <Nav network={network} />
         <a className="KaikasPage__githubLink" href="https://github.com/klaytn/kaikas-tutorial" title="Link to Kaikas tutorial github repository">
-          <img src="images/icon-github.svg" alt="Kaikas Tutorial Github" />
+          <img src={githubIcon} alt="Kaikas Tutorial Github" />
         </a>
         <div className="KaikasPage__main">
           <WalletInfo address={account} balance={balance} />

@@ -1,3 +1,5 @@
+@import '../styles/variables';
+
 .Message {
   @include font-style('font-4');
   display: flex;
@@ -12,7 +14,7 @@
   &--error {
     .Message__status {
       color: $alert-red;
-      background-image: url('/images/ico-error.svg');
+      background-image: url('../static/images/ico-error.svg');
     }
     .Message__message { color: $alert-red; }
   }
@@ -28,7 +30,7 @@
 
   &--receipt {
     .Message__status {
-      background-image: url('/images/ico-receipt.svg');
+      background-image: url('../static/images/ico-receipt.svg');
     }
   }
 
@@ -38,7 +40,7 @@
     .Message__status {
       padding-top: 25px;
       background-size: 22px 22px;
-      background-image: url('/images/icon-tx.svg');
+      background-image: url('../static/images/icon-tx.svg');
     }
   }
 }
