@@ -1,3 +1,6 @@
+# Notice
+The features on this repo are integrated into the https://github.com/klaytn/klaytn-online-toolkit.
+
 # Branch name will be changed
 
 We will change the `master` branch to `main` on Dec 15, 2022.
