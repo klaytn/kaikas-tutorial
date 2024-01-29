@@ -1,11 +1,6 @@
 # Notice
 The features on this repo are integrated into the https://github.com/klaytn/klaytn-online-toolkit.
 
-# Branch name will be changed
-
-We will change the `master` branch to `main` on Dec 15, 2022.
-After the branch policy change, please check your local or forked repository settings.
-
 # Kaikas Tutorial
 
 > [tutorial.kaikas.io](tutorial.kaikas.io)
